@@ -1,9 +1,9 @@
 package org.launchcode.javawebdevtechjobsauthentication.models;
 
+import com.sun.istack.NotNull;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class User extends AbstractEntity {
@@ -27,7 +27,8 @@ public class User extends AbstractEntity {
         return username;
     }
 
-    public boolean isMatchingPassword(String password) {
-        return encoder.matches(password, pwHash);
+    public boolean isMatchingPassword(String password){
+        return  encoder.matches(password, pwHash);
     }
+
 }
